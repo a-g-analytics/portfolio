@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anna Gilbert</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Monoton&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class = "background" id="background">
+        <div class="stars_container">
+            <img src="Images/stars.webp" aria-label="starry sky" id="stars">
+        </div>
+    </section>
+    <header class="header">
+        <div id="logozone">
+            <img id="logo" src="Images/logo.webp" aria-label="logo - geometric leaves">
+        </div>
+        <h1>Anna Gilbert</h1>
+        <div class="menus">
+            <button id="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile_menu">
+                <span class="hamline"></span>
+                <span class="hamline"></span>
+                <span class="hamline"></span>
+            </button>
+            <nav id="desktop_menu">
+                <a class="menu_item" href="#home">HOME</a>
+                <a class="menu_item" href="#skill_header">SKILLS</a>
+                <a class="menu_item" href="#education">EDUCATION</a>
+                <a class="menu_item" href="#portfolio">PORTFOLIO</a>
+                <a class="menu_item" href="#contact">CONTACT</a>
+            </nav>
+            <nav id="mobile_menu">
+                <a class="menu_item" href="#home">HOME</a>
+                <a class="menu_item" href="#skill_header">SKILLS</a>
+                <a class="menu_item" href="#education">EDUCATION</a>
+                <a class="menu_item" href="#portfolio">PORTFOLIO</a>
+                <a class="menu_item" href="#contact">CONTACT</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <section class="hero" id="home">
+            <h3 id="tagline">You already have a universe of data. I can help you connect the dots.</h3> 
+            <div class="hero_columns">
+                <p id="value_prop">I bring practical perspective from a background grounded in business operations and client management. I approach business data with curiosity, looking beyond the obvious to find insights that raise questions you haven't asked yet.</p>
+                <button type="button" id="constellation" class="constellation" aria-label="Cassiopeia constellation chart.">
+                    <svg class="constellation_lines" viewBox="0 0 327 226" aria-hidden="true" focusable="false">
+                        <path class="chart_axes" d="M8 18 V202 H315" pathLength="1"/>
+                        <path class="cassiopeia_line" d="M31 32 L86 103 L149 98 L190 171 L254 114" pathLength="1"/>
+                    </svg>
+                    <span class="star star_start" style="--x: 9.48%; --y: 14.16%;" aria-hidden="true"></span>
+                    <span class="star" style="--x: 26.30%; --y: 45.58%; --delay: 1.05s;" aria-hidden="true"></span>
+                    <span class="star" style="--x: 45.57%; --y: 43.36%; --delay: 1.36s;" aria-hidden="true"></span>
+                    <span class="star" style="--x: 58.10%; --y: 75.66%; --delay: 1.77s;" aria-hidden="true"></span>
+                    <span class="star" style="--x: 77.68%; --y: 50.44%; --delay: 2.2s;" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="cta">
+                <button class="button" id="github_link">See My Work</button>
+                <button class="button" id="email_contact">Contact Me</button>
+                <button class="button" id="resume_popup" type="button" data-resume-open aria-haspopup="dialog" aria-controls="resume_dialog">See My Experience</button>
+            </div>
+        </section>
+        <h2 id="skill_header">Skills and Knowledge</h2>
+        <section class="skills" id="skills">
+            <div class="technical">
+                <div class="tab_list" role="tablist" aria-label="Technical skill categories">
+                    <button class="tab_button" role="tab" id="tab-tools"
+                        aria-controls="tools" aria-selected="true">Tools</button>
+                    <button class="tab_button" role="tab" id="tab-analytics"
+                        aria-controls="analytics" aria-selected="false" tabindex="-1">Analytics</button>
+                    <button class="tab_button" role="tab" id="tab-biz_fin"
+                        aria-controls="biz_fin" aria-selected="false" tabindex="-1">Business &amp; Finance</button>
+                    <button class="tab_button" role="tab" id="tab-sys_work"
+                        aria-controls="sys_work" aria-selected="false" tabindex="-1">Systems &amp; Workforce</button>
+                </div>
+
+                <div class="skill_tab" id="tools" role="tabpanel" aria-labelledby="tab-tools">
+                    <div class="excel">
+                        <img src="Images/excel.webp" class="tool_logo" aria-label="Microsoft Excel Logo">
+                        Microsoft Excel
+                    </div>
+                    <div class="word">
+                        <img src="Images/word.webp" class="tool_logo" aria-label="Microsoft Word Logo">
+                        Microsoft Word
+                    </div>
+                    <div class="ppt">
+                        <img src="Images/ppt.webp" class="tool_logo" aria-label="Microsoft Powerpoint Logo">
+                        Microsoft Powerpoint
+                    </div>
+                    <div class="access">
+                        <img src="Images/access.webp" class="tool_logo" aria-label="Microsoft Access Logo">
+                        Microsoft Access
+                    </div>
+                    <div class="sql">
+                        <img src="Images/sql.webp" class="tool_logo" aria-label="SQL Logo">
+                        SQL
+                    </div>
+                    <div class="python">
+                        <img src="Images/python.webp" class="tool_logo" aria-label="Python Logo">
+                        Python
+                    </div>
+                    <div class="r">
+                        <img src="Images/r.webp" class="tool_logo r_fix" aria-label="R Logo">
+                        R
+                    </div>
+                    <div class="powerq">
+                        <img src="Images/powerq.webp" class="tool_logo" aria-label="Power Query Logo">
+                        Power Query
+                    </div>
+                    <div class="html">
+                        <img src="Images/html.webp" class="tool_logo" aria-label="HTML Logo">
+                        HTML
+                    </div>
+                    <div class="css">
+                        <img src="Images/css.webp" class="tool_logo" aria-label="CSS Logo">
+                        CSS
+                    </div>
+                    <div class="jvsc">
+                        <img src="Images/jscript.webp" class="tool_logo" aria-label="JavaScript Logo">
+                        JavaScript
+                    </div>
+                    <div class="tableau">
+                        <img src="Images/tableau.webp" class="tool_logo" aria-label="Tableau Logo">
+                        Tableau
+                    </div>
+                </div>
+
+                <div class="skill_tab" id="analytics" role="tabpanel" aria-labelledby="tab-analytics" hidden>
+                    <div>Data cleaning and transformation</div>
+                    <div>Exploratory data analysis</div>
+                    <div>Statistical analysis</div>
+                    <div>Data visualization</div>
+                    <div>Introductory machine learning</div>
+                    <div>Database querying and joins</div>
+                    <div>Data validation and quality assurance</div>
+                    <div>KPI development and reporting</div>
+                </div>
+
+                <div class="skill_tab" id="biz_fin" role="tabpanel" aria-labelledby="tab-biz_fin" hidden>
+                    <div>Profitability and margin analysis</div>
+                    <div>Financial reconciliation</div>
+                    <div>Revenue and expense analysis</div>
+                    <div>Accounts payable auditing</div>
+                    <div>Productivity and performance analysis</div>
+                    <div>Process improvement</div>
+                </div>
+                <div class="skill_tab" id="sys_work" role="tabpanel" aria-labelledby="tab-sys_work" hidden>
+                    <div>CRM configuration and management</div>
+                    <div>Database design</div>
+                    <div>Business systems analysis</div>
+                    <div>Workflow automation</div>
+                    <div>Technical documentation</div>
+                    <div>Windows administration</div>
+                    <div>Introductory networking</div>
+                </div>
+            </div>
+            <div class="content_container soft">
+                <figure class="radar_frame">
+                    <div class="radar_plot" id="radar_plot" aria-hidden="true" style="--v1: 90; --v2: 85; --v3: 85; --v4: 95; --v5: 90; --v6: 80;">
+                        <div class="radar_grid"></div>
+                        <div class="radar_fill"></div>
+                        <div class="radar_line"></div>
+                        <span class="star radar_star" style="--x: var(--x1); --y: var(--y1);"></span><span class="star radar_star" style="--x: var(--x2); --y: var(--y2);"></span>
+                        <span class="star radar_star" style="--x: var(--x3); --y: var(--y3);"></span>
+                        <span class="star radar_star" style="--x: var(--x4); --y: var(--y4);"></span>
+                        <span class="star radar_star" style="--x: var(--x5); --y: var(--y5);"></span>
+                        <span class="star radar_star" style="--x: var(--x6); --y: var(--y6);"></span>
+                        <span class="radar_label" style="--a: 0deg;">Communication</span>
+                        <span class="radar_label" style="--a: 60deg;">Critical Thinking</span>
+                        <span class="radar_label" style="--a: 120deg;">Problem-Solving</span>
+                        <span class="radar_label" style="--a: 180deg;">Adaptability</span>
+                        <span class="radar_label" style="--a: 240deg;">Curiosity</span>
+                        <span class="radar_label" style="--a: 300deg;">Teamwork</span>
+                    </div>
+                    <div class="radar_text_aria-label visually_hidden">
+                        <ul>
+                            <li>Communication: 90 out of 100</li>
+                            <li>Critical thinking: 85 out of 100</li>
+                            <li>Problem-solving: 85 out of 100</li>
+                            <li>Adaptability: 95 out of 100</li>
+                            <li>Curiosity: 90 out of 100</li>
+                            <li>Teamwork: 80 out of 100</li>
+                        </ul>
+                    </div>
+                </figure>
+            </div>
+        </section>
+        <section class="education" id="education">
+            <div class="education_layout">
+                <header class="section_head">
+                    <h2>Education</h2>
+                </header>
+
+                <div class="education_list">
+                    <h3 class="edu_group">Program</h3>
+                    <ul class="edu_rows">
+                        <li class="edu_row">
+                            <span class="edu_name">Data Analytics</span>
+                            <span class="edu_provider">NSCC: Institute of Technology</span>
+                            <span class="edu_year">2026&ndash;2028</span>
+                        </li>
+                    </ul>
+
+                    <h3 class="edu_group">Courses &amp; certificates</h3>
+                    <ul class="edu_rows">
+                        <li class="edu_row">
+                            <span class="edu_name">Data Analytics: Next Level Certificate</span>
+                            <span class="edu_provider">Digital Nova Scotia</span>
+                            <span class="edu_year">2026</span>
+                        </li>
+                        <li class="edu_row">
+                            <span class="edu_name">Data Analytics: Foundations Certificate</span>
+                            <span class="edu_provider">Digital Nova Scotia</span>
+                            <span class="edu_year">2025</span>
+                        </li>
+                        <li class="edu_row">
+                            <span class="edu_name">Data Analytics Certificate</span>
+                            <span class="edu_provider">Google: Coursera</span>
+                            <span class="edu_year">2024</span>
+                        </li>
+                        <li class="edu_row">
+                            <span class="edu_name">UX/UI Certificate</span>
+                            <span class="edu_provider">Google: Coursera</span>
+                            <span class="edu_year">2023</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section class="glance" aria-label="At a glance">
+            <dl class="glance_list">
+                <div class="glance_item">
+                    <dt class="glance_label">Projects</dt>
+                    <dd class="glance_number">0</dd>
+                </div>
+                <div class="glance_item">
+                    <dt class="glance_label">Tools</dt>
+                    <dd class="glance_number">12</dd>
+                </div>
+                <div class="glance_item">
+                    <dt class="glance_label">Skill areas</dt>
+                    <dd class="glance_number">4</dd>
+                </div>
+                <div class="glance_item">
+                    <dt class="glance_label">Courses &amp; credentials</dt>
+                    <dd class="glance_number">5</dd>
+                </div>
+            </dl>
+        </section>
+        <section class="portfolio" id="portfolio">
+            <header class="section_head">
+                <h2>Projects</h2>
+            </header>
+            <div class="project_list">
+                <!-- Project 1 -->
+                <article class="project_card">
+                    <div class="card_inner">
+                        <!-- front of card -->
+                        <div class="card_face card_front">
+                            <div class="card_preview">
+                                <!-- put desired preview image here -->
+                            </div>
+                            <p class="card_label">
+                                <span>Project 01</span>
+                                <span class="card_year"><!-- year project was created here --></span>
+                                <span class="type_chip"><!-- what type of project was it? dashboard? report? --></span>
+                            </p>
+                            <h3 class="card_title"><!-- pick a title for the project, phrase it as a problem solved --></h3>
+                            <p class="card_question"><strong>Question:</strong> <!-- one sentence about the actual business problem --></p>
+                            <ul class="tool_chips">
+                                <!-- what tools were used? list 2-3 here -->
+                            </ul>
+                            <button class="flip_button" type="button">Details</button>
+                        </div>
+                        <!-- back of card -->
+                        <div class="card_face card_back">
+                            <h4 class="back_heading" tabindex="-1">Project details</h4>
+                            <dl class="card_details">
+                                <dt>Data</dt>
+                                <dd><!-- what data source was used? why? --></dd>
+                                <dt>My role</dt>
+                                <dd><!-- what did I actually do with it? --></dd>
+                            </dl>
+                            <p class="findings_heading">Key findings</p>
+                            <ul class="findings">
+                                <!-- pick 3 findings / decisions/ impacts supported by the project, list form -->
+                            </ul>
+                            <ul class="card_links">
+                                <!-- put any links here (IE original dataset, github, specific project, tableau dashboard) -->
+                            </ul>
+                            <button class="flip_button" type="button">Back</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Project 2 -->
+                <article class="project_card">
+                    <div class="card_inner">
+                        <!-- front of card -->
+                        <div class="card_face card_front">
+                            <div class="card_preview">
+                                <!-- put desired preview image here -->
+                            </div>
+                            <p class="card_label">
+                                <span class="card_year"><!-- year project was created here --></span>
+                                <span class="type_chip"><!-- what type of project was it? dashboard? report? --></span>
+                            </p>
+                            <h3 class="card_title"><!-- pick a title for the project, phrase it as a problem solved --></h3>
+                            <p class="card_question"><strong>Question:</strong> <!-- one sentence about the actual business problem --></p>
+                            <ul class="tool_chips">
+                                <!-- what tools were used? list 2-3 here -->
+                            </ul>
+                            <button class="flip_button" type="button">Details</button>
+                        </div>
+                        <!-- back of card -->
+                        <div class="card_face card_back">
+                            <h4 class="back_heading" tabindex="-1">Project details</h4>
+                            <dl class="card_details">
+                                <dt>Data</dt>
+                                <dd><!-- what data source was used? why? --></dd>
+                                <dt>My role</dt>
+                                <dd><!-- what did I actually do with it? --></dd>
+                            </dl>
+                            <p class="findings_heading">Key findings</p>
+                            <ul class="findings">
+                                <!-- pick 3 findings / decisions/ impacts supported by the project, list form -->
+                            </ul>
+                            <ul class="card_links">
+                                <!-- put any links here (IE original dataset, github, specific project, tableau dashboard) -->
+                            </ul>
+                            <button class="flip_button" type="button">Back</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Project 3 -->
+                <article class="project_card">
+                    <div class="card_inner">
+                        <!-- front of card -->
+                        <div class="card_face card_front">
+                            <div class="card_preview">
+                                <!-- put desired preview image here -->
+                            </div>
+                            <p class="card_label">
+                                <span>Project 03</span>
+                                <span class="card_year"><!-- year project was created here --></span>
+                                <span class="type_chip"><!-- what type of project was it? dashboard? report? --></span>
+                            </p>
+                            <h3 class="card_title"><!-- pick a title for the project, phrase it as a problem solved --></h3>
+                            <p class="card_question"><strong>Question:</strong> <!-- one sentence about the actual business problem --></p>
+                            <ul class="tool_chips">
+                                <!-- what tools were used? list 2-3 here -->
+                            </ul>
+                            <button class="flip_button" type="button">Details</button>
+                        </div>
+                        <!-- back of card -->
+                        <div class="card_face card_back">
+                            <h4 class="back_heading" tabindex="-1">Project details</h4>
+                            <dl class="card_details">
+                                <dt>Data</dt>
+                                <dd><!-- what data source was used? why? --></dd>
+                                <dt>My role</dt>
+                                <dd><!-- what did I actually do with it? --></dd>
+                            </dl>
+                            <p class="findings_heading">Key findings</p>
+                            <ul class="findings">
+                                <!-- pick 3 findings / decisions/ impacts supported by the project, list form -->
+                            </ul>
+                            <ul class="card_links">
+                                <!-- put any links here (IE original dataset, github, specific project, tableau dashboard) -->
+                            </ul>
+                            <button class="flip_button" type="button">Back</button>
+                        </div>
+                    </div>
+                </article>
+                <!-- Project 4 -->
+                <article class="project_card">
+                    <div class="card_inner">
+                        <!-- front of card -->
+                        <div class="card_face card_front">
+                            <div class="card_preview">
+                                <!-- put desired preview image here -->
+                            </div>
+                            <p class="card_label">
+                                <span>Project 04</span>
+                                <span class="card_year"><!-- year project was created here --></span>
+                                <span class="type_chip"><!-- what type of project was it? dashboard? report? --></span>
+                            </p>
+                            <h3 class="card_title"><!-- pick a title for the project, phrase it as a problem solved --></h3>
+                            <p class="card_question"><strong>Question:</strong> <!-- one sentence about the actual business problem --></p>
+                            <ul class="tool_chips">
+                                <!-- what tools were used? list 2-3 here -->
+                            </ul>
+                            <button class="flip_button" type="button">Details</button>
+                        </div>
+                        <!-- back of card -->
+                        <div class="card_face card_back">
+                            <h4 class="back_heading" tabindex="-1">Project details</h4>
+                            <dl class="card_details">
+                                <dt>Data</dt>
+                                <dd><!-- what data source was used? why? --></dd>
+                                <dt>My role</dt>
+                                <dd><!-- what did I actually do with it? --></dd>
+                            </dl>
+                            <p class="findings_heading">Key findings</p>
+                            <ul class="findings">
+                                <!-- pick 3 findings / decisions/ impacts supported by the project, list form -->
+                            </ul>
+                            <ul class="card_links">
+                                <!-- put any links here (IE original dataset, github, specific project, tableau dashboard) -->
+                            </ul>
+                            <button class="flip_button" type="button">Back</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+        <div class ="aurora_container">
+            <div class="aurora_shader">
+                <img src="Images/aurora_base.webp" aria-label="aurora over trees" id="aurora">
+                <div class="shader_layer specular"></div>
+            </div>
+        </div>
+        <section class="contact" id="contact">
+            <div class="contact_layout">
+                <header class="section_head on_light">
+                    <h2>Get In Touch</h2>
+                    <h3>Every great insight starts with a great conversation. Let's get in touch.</h3>
+                </header>
+
+                <ul class="contact_links">
+                    <li>
+                        <a class="contact_row" href="mailto:anna.g.analytics@outlook.com">
+                            <span class="row_label">Email</span>
+                            <span class="row_value">anna.g.analytics@outlook.com</span>
+                            <span class="row_icon" aria-hidden="true">&rarr;</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact_row" href="https://www.linkedin.com/in/anas-gilb/" target="_blank" rel="noopener">
+                            <span class="row_label">LinkedIn</span>
+                            <span class="row_value">https://www.linkedin.com/in/anas-gilb/</span>
+                            <span class="row_icon" aria-hidden="true">&#8599;</span>
+                            <span class="visually_hidden">(opens in a new tab)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="contact_row" href="#" target="_blank" rel="noopener">
+                            <span class="row_label">GitHub</span>
+                            <span class="row_value"><!-- todo: put github URL here --></span>
+                            <span class="row_icon" aria-hidden="true">&#8599;</span>
+                            <span class="visually_hidden">(opens in a new tab)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <button class="contact_row" type="button" data-resume-open aria-haspopup="dialog" aria-controls="resume_dialog">
+                            <span class="row_label">Resume</span>
+                            <span class="row_value">View &amp; Download</span>
+                            <span class="row_icon row_icon_box" aria-hidden="true"></span>
+                        </button>
+                    </li>
+                </ul>
+            </div>
+            <div class="credits">
+                Aurora Image: <a href="https://unsplash.com/photos/silhouette-of-trees-near-aurora-borealis-at-night-62V7ntlKgL8">Silhouette of Trees near Aurora Borealis at Night</a>
+                Shader: <a href="https://robbowen.digital/wrote-about/css-blend-mode-shaders/">Holograms, Light-Leaks, and CSS Shaders</a>
+            </div>
+        </section>
+    </main>
+<dialog class="resume_dialog" id="resume_dialog" aria-labelledby="resume_title">
+        <div class="dialog_panel">
+            <div class="dialog_head">
+                <h2 id="resume_title">Resume</h2>
+                <button class="dialog_close" type="button" data-close aria-label="Close resume">&times;</button>
+            </div>
+            <div class="resume_preview">
+                <object class="resume_embed" data="Files/resume.pdf" type="application/pdf" aria-label="Resume preview">
+                    <img class="resume_embed" src="Images/resume_page1.webp" aria-label="First page of Anna Gilbert's resume">
+                </object>
+            </div>
+            <div class="dialog_actions">
+                <button class="dialog_button" type="button" data-close>Close</button>
+                <a class="dialog_button" href="Files/resume.pdf" target="_blank" rel="noopener">Print<span class="visually_hidden"> (opens the PDF in a new tab)</span></a>
+                <a class="dialog_button primary" href="Files/resume.pdf" download>Download resume (PDF)</a>
+            </div>
+        </div>
+    </dialog>
+<script src="main.js"></script>    
+</body>

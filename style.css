@@ -1,0 +1,1567 @@
+/* PALETTE
+option A)
+#406f78
+#654078
+#784940
+#537840
+option B)
+#097A72
+#39097a
+#7a0911
+#4a7a09 */
+
+/* this keeps the scrollbar from moving when resume pops up */
+
+html {
+    scrollbar-gutter: stable;
+}
+
+body {
+    margin: 0;
+    position: relative;
+    background-image: linear-gradient(
+        #242325,
+        #000000
+    );
+}
+
+/* this section adds some padding to the menu scrolling, so that the header does not cover the headings */
+
+#home, #skill_header, #education, #portfolio, #contact {
+    scroll-margin-top: 7.5rem;
+}
+
+/* background effects */
+
+.background {
+    position: absolute;
+    top:0;
+    width: 100%;
+    z-index: -1;
+}
+
+/* background containers */
+
+.stars_container {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* edit the vh values below to change the spacing of the page (testing purposes only)*/
+
+.aurora_container {
+    width: 100%;
+    margin: 4rem 0 0 0;
+    overflow: hidden;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,            /* 100% transparent */
+        rgba(0,0,0,0.5) 5%,        /* 50% transparent */
+        black 10%,                 /* fully visible... */
+        black 90%,                 /* ...for the middle 80% */
+        rgba(0,0,0,0.5) 95%,       /* 50% transparent */
+        transparent 100%           /* 100% transparent */
+    );
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.5) 5%,
+        black 10%,
+        black 90%,
+        rgba(0,0,0,0.5) 95%,
+        transparent 100%
+    );
+}
+
+/* hero stars */
+
+#stars {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    /* this adds transparency at bottom */
+    mask-image: linear-gradient(to bottom, black 30%, black 50%, rgba(0,0,0,0.8) 80%, transparent 100%);
+}
+
+/* aurora effects */
+
+.aurora_shader {
+    position: relative;
+    overflow: hidden;
+    /* the shader is apparently a 3d object, so 'turning off' the back of the shader will reduce the demand on processor */
+    backface-visibility: hidden;
+}
+
+#aurora {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.specular {
+    position: absolute;
+    inset: 0;
+    background-attachment: fixed;
+    /* adjust these settings to change how the color variation appears */
+    background-image: repeating-linear-gradient(
+        170deg, 
+        transparent 0%,
+        #406f78 5%,
+        #ff90be 10%,
+        #70cbff 16%,
+        #dc5cff 25%,
+        #23ffaa 45%,
+        #406f78 60%,
+        transparent 100%
+    );
+    background-size: 100% 200%;
+    filter: saturate(1.35) brightness(1.1);
+    mask-image: url(Images/aurora_mask.webp);
+    mask-mode: luminance;
+    mix-blend-mode: hard-light;
+    mask-size: 100%;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    /* the below -webkit functions allow older browsers that use webkit to also use the mask effects */
+    -webkit-mask-image: url(Images/aurora_mask.webp);
+    -webkit-mask-size: 100% 100%;
+    -webkit-mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+}
+
+/* content */
+
+.content_container {
+    background-color: #c1b9c2;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    margin-top: 2vw;
+    padding: .5rem;
+    border-radius: .15rem;
+}
+
+/* text */
+
+h1 {
+    color: #04302e;
+    font: 2.5rem 'Monoton', serif;
+    font-style: oblique;
+}
+
+h2 {
+    color: #04302e;
+    font: 2rem 'Monoton', serif;
+}
+
+h3 {
+    color: #03b19f;
+    font: 1.5rem 'Electrolize', serif;
+}
+
+p {
+    color: #1d2423;
+    font: 1rem 'Electrolize', sans-serif;
+}
+
+.header {
+    position: sticky;
+    top: 1rem;
+    width: 95vw;
+    height: 5rem;
+    margin-inline: auto;
+    display: flex;
+    align-items: center;
+    background: rgba(213,211,224,0.72);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 5px solid rgba(145,194,179,0.18);
+    border-radius: 18px;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    z-index: 5;
+}
+
+#logozone {
+    width: 4rem;
+    height: 4rem;
+}
+
+#logo {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    margin-top: .4rem;
+    margin-left: .5rem;
+}
+
+#desktop_menu {
+    position: absolute;
+    right: 1rem;
+    bottom: .75rem;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    gap: 1.25vw;
+    margin: 0;
+}
+
+#desktop_menu a {
+    color: #124d47;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+#desktop_menu a:link,
+#desktop_menu a:visited {
+    color: #124d47;
+}
+
+#desktop_menu a:hover {
+    color: #654078;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+#desktop_menu a:active {
+    color: #80cbc4;
+}
+
+#hamburger {
+    border: 1px solid rgba(18, 77, 71, 0.35);
+    background: rgba(255, 255, 255, 0.18);
+    height: 3rem;
+    width: 3rem;
+    margin: 1rem 1rem 1rem auto;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.hamline {
+    display: block;
+    width: 70%;
+    height: 2px;
+    margin: 3px 0;
+    background-color: #124d47;
+}
+
+#mobile_menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 20rem;
+    max-width: 100%;
+    color: white;
+    background-color: #333;
+    z-index: 10;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    transition: all .200s ease-in-out;
+}
+
+.menu_item {
+    color: white;
+    font-family: 'Electrolize', sans-serif;
+    display: block;
+    width: fit-content;
+}
+
+/* hero section */
+
+.hero {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    padding: 6rem 2rem 5rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#tagline {
+    margin-top: -10rem;
+    margin-bottom: 3rem;
+    background-color: #242325;
+}
+
+.hero_columns {
+    display: flex;
+    margin: 3rem;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    max-width: 90vh;
+    flex-direction: column;
+}
+
+/* constellation chart: single start, when clicked draws cassiopeia */
+
+#constellation {
+    max-width: 100%;
+    display: block;
+}
+
+.constellation {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 327 / 226;
+    padding: 0;
+    border: 0;
+    border-radius: 6px;
+    background: transparent;
+    cursor: pointer;
+}
+
+.constellation:focus-visible {
+    outline: 2px solid #097A72;
+    outline-offset: 4px;
+}
+
+.constellation_lines {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.chart_axes,
+.cassiopeia_line {
+    fill: none;
+    stroke-width: 2;
+}
+
+.chart_axes {
+    stroke: #284c49;
+}
+
+.cassiopeia_line {
+    stroke: #7c404f;
+    stroke-linejoin: round;
+}
+
+/* css drawn star*/
+
+.star {
+    position: absolute;
+    left: var(--x);
+    top: var(--y);
+    width: 14px;
+    height: 14px;
+    translate: -50% -50%;
+    filter: drop-shadow(0 0 3px rgba(196, 255, 249, 0.8)) drop-shadow(0 0 6px rgba(220, 92, 255, 0.35));
+}
+
+.star::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #e8f6f4;
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
+/* before the click: hide the lines and every star except the first */
+.constellation.armed .chart_axes,
+.constellation.armed .cassiopeia_line {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+}
+
+.constellation.armed .star:not(.star_start) {
+    scale: 0;
+}
+
+.constellation.armed:not(.drawn) .star_start {
+    animation: star_pulse 1.8s ease-in-out infinite;
+}
+
+/* on click: axes draw, then the line travels star to star, and each star pops as the line reaches it */
+
+.constellation.drawn .chart_axes {
+    animation: draw_line 0.6s ease-out forwards;
+}
+
+.constellation.drawn .cassiopeia_line {
+    animation: draw_line 1.6s linear 0.6s forwards;
+}
+
+.constellation.drawn .star:not(.star_start) {
+    animation: star_pop 0.35s ease-out var(--delay) forwards;
+}
+
+@keyframes draw_line {
+    to { stroke-dashoffset: 0; }
+}
+
+@keyframes star_pop {
+    0%   { scale: 0; }
+    70%  { scale: 1.4; }
+    100% { scale: 1; }
+}
+
+@keyframes star_pulse {
+    0%, 100% { scale: 1; }
+    50%      { scale: 1.35; }
+}
+
+#value_prop {
+    background: rgba(193,185,194,.5);
+    color: #c4fff9;
+    border: 10px solid;
+    border-color: rgba(193,185,194,.05);
+    border-radius: 15px;
+}
+
+.cta {
+    display: flex;
+    gap: 3rem;
+    margin-top: 3rem;
+    justify-content: center;
+}
+
+.button {
+    font: .85rem 'Electrolize', sans-serif;
+    background: transparent;
+    color: #4fd1c5;
+    border: 2px solid #4fd1c5;
+    border-radius: 6px;
+    min-height: 44px;
+    padding: 0 1.25rem;
+}
+
+/* skills  */
+
+.skills {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+    align-items: stretch;
+    width: 90%;
+    margin: 2rem auto;
+    box-sizing: border-box;
+}
+
+#skill_header {
+    color: #c4fff9;
+    text-align: center;
+}
+
+.technical {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: rgba(193, 185, 194, 0.06);
+    border: 1px solid rgba(193, 185, 194, 0.15);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+
+.skill_tab {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
+}
+
+.skill_tab[hidden] {
+    display: none;
+}
+
+.skill_tab > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 0;
+    min-height: 65px;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    background-color: #c1b9c2;
+    color: #04302e;
+    border-radius: 6px;
+    text-align: center;
+    overflow-wrap: anywhere;
+    font: 0.9rem 'Electrolize', sans-serif;
+}
+ 
+.tool_logo {
+    height: 1rem;
+    width: 1rem;
+    padding: .5rem;
+}
+
+.r_fix {
+    margin-bottom: .3rem;
+}
+
+.tab_list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding: 0 1rem;            
+    margin-bottom: 0.5rem;
+}
+
+.tab_button {
+    flex: 1 1 auto;
+    font: 0.85rem 'Electrolize', sans-serif;
+    background: transparent;
+    color: #4fd1c5;
+    border: 2px solid #4fd1c5;
+    border-radius: 6px;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.tab_button:hover {
+    background: rgba(79, 209, 197, 0.15);   
+}
+
+.tab_button[aria-selected="true"] {
+    background: #c1b9c2;
+    color: #04302e;
+    border-color: #c1b9c2;
+}
+
+.tab_button:focus-visible {
+    outline: 2px solid #097A72;
+    outline-offset: 2px;
+}
+
+.soft {
+    min-width: 0;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0;                  
+    background: rgba(193, 185, 194, 0.06);
+    border: 1px solid rgba(193, 185, 194, 0.15);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* radar plot */
+
+.radar_frame {
+    width: 100%;
+    max-width: 480px;
+    margin: 0;
+}
+
+.radar_plot {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+.radar_caption {
+    margin-top: 0.75rem;
+    text-align: center;
+    font: 0.85rem 'Electrolize', sans-serif;
+    color: #c4fff9;
+}
+
+/* radar chart: scores (--v1 to --v6) come from .radar_plot in index.html */
+.radar_plot {
+    --r: 31%;
+    --lr: calc(var(--r) + 5%);
+    container-type: inline-size;
+    --x1: calc(50% + var(--r) * var(--v1) / 100 * sin(0deg));
+    --y1: calc(50% - var(--r) * var(--v1) / 100 * cos(0deg));
+    --x2: calc(50% + var(--r) * var(--v2) / 100 * sin(60deg));
+    --y2: calc(50% - var(--r) * var(--v2) / 100 * cos(60deg));
+    --x3: calc(50% + var(--r) * var(--v3) / 100 * sin(120deg));
+    --y3: calc(50% - var(--r) * var(--v3) / 100 * cos(120deg));
+    --x4: calc(50% + var(--r) * var(--v4) / 100 * sin(180deg));
+    --y4: calc(50% - var(--r) * var(--v4) / 100 * cos(180deg));
+    --x5: calc(50% + var(--r) * var(--v5) / 100 * sin(240deg));
+    --y5: calc(50% - var(--r) * var(--v5) / 100 * cos(240deg));
+    --x6: calc(50% + var(--r) * var(--v6) / 100 * sin(300deg));
+    --y6: calc(50% - var(--r) * var(--v6) / 100 * cos(300deg));
+}
+
+.radar_fill {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(35, 255, 170, 0.32), rgba(112, 203, 255, 0.28), rgba(220, 92, 255, 0.28));
+    clip-path: polygon(var(--x1) var(--y1), var(--x2) var(--y2), var(--x3) var(--y3), var(--x4) var(--y4), var(--x5) var(--y5), var(--x6) var(--y6));
+}
+
+.radar_label {
+    position: absolute;
+    left: calc(50% + var(--lr) * sin(var(--a)));
+    top: calc(50% - var(--lr) * cos(var(--a)));
+    translate: calc((sin(var(--a)) - 1) * 50%) calc((-1 * cos(var(--a)) - 1) * 50%);
+    width: max-content;
+    max-width: 9em;
+    font: 3.1cqi/1.3 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    text-align: center;
+    text-wrap: balance;
+    color: #4fd1c5;
+}
+
+/* rings and spokes behind the radar plot */
+.radar_grid {
+    position: absolute;
+    inset: calc(50% - var(--r));
+    box-sizing: border-box;
+    border: 1px solid rgba(79, 209, 197, 0.4);
+    border-radius: 50%;
+    background:
+        linear-gradient(90deg, transparent calc(50% - 0.5px), rgba(79, 209, 197, 0.22) 0 calc(50% + 0.5px), transparent 0),
+        linear-gradient(150deg, transparent calc(50% - 0.5px), rgba(79, 209, 197, 0.22) 0 calc(50% + 0.5px), transparent 0),
+        linear-gradient(30deg, transparent calc(50% - 0.5px), rgba(79, 209, 197, 0.22) 0 calc(50% + 0.5px), transparent 0),
+        repeating-radial-gradient(circle closest-side, transparent 0 calc(25% - 1px), rgba(79, 209, 197, 0.22) 0 25%);
+}
+
+/* optional: teal outline around the shape (a second, smaller copy of the points is cut out of it) */
+.radar_plot {
+    --line: 2.5px;
+    --xi1: calc(50% + (var(--r) * var(--v1) / 100 - var(--line)) * sin(0deg));
+    --yi1: calc(50% - (var(--r) * var(--v1) / 100 - var(--line)) * cos(0deg));
+    --xi2: calc(50% + (var(--r) * var(--v2) / 100 - var(--line)) * sin(60deg));
+    --yi2: calc(50% - (var(--r) * var(--v2) / 100 - var(--line)) * cos(60deg));
+    --xi3: calc(50% + (var(--r) * var(--v3) / 100 - var(--line)) * sin(120deg));
+    --yi3: calc(50% - (var(--r) * var(--v3) / 100 - var(--line)) * cos(120deg));
+    --xi4: calc(50% + (var(--r) * var(--v4) / 100 - var(--line)) * sin(180deg));
+    --yi4: calc(50% - (var(--r) * var(--v4) / 100 - var(--line)) * cos(180deg));
+    --xi5: calc(50% + (var(--r) * var(--v5) / 100 - var(--line)) * sin(240deg));
+    --yi5: calc(50% - (var(--r) * var(--v5) / 100 - var(--line)) * cos(240deg));
+    --xi6: calc(50% + (var(--r) * var(--v6) / 100 - var(--line)) * sin(300deg));
+    --yi6: calc(50% - (var(--r) * var(--v6) / 100 - var(--line)) * cos(300deg));
+}
+
+.radar_line {
+    position: absolute;
+    inset: 0;
+    background: #4fd1c5;
+    clip-path: polygon(evenodd, var(--x1) var(--y1), var(--x2) var(--y2), var(--x3) var(--y3), var(--x4) var(--y4), var(--x5) var(--y5), var(--x6) var(--y6), var(--x1) var(--y1), var(--xi1) var(--yi1), var(--xi2) var(--yi2), var(--xi3) var(--yi3), var(--xi4) var(--yi4), var(--xi5) var(--yi5), var(--xi6) var(--yi6), var(--xi1) var(--yi1));
+}
+
+/* stars at each of the spoke points in the radar plot */
+.radar_star {
+    width: 12px;
+    height: 12px;
+}
+
+/* education */
+
+.education {
+    width: 90%;
+    margin: 7rem auto 0;
+}
+
+.education_layout {
+    display: grid;
+    /* this means the heading has 4 columns and the list has 8 columns */
+    grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); 
+    gap: 24px;
+    align-items: start;
+}
+
+.education .section_head {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: 0;
+}
+
+.edu_group {
+    margin: 0;
+    padding: 0 0 0.75rem;
+    font: 0.75rem 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #4fd1c5;
+    border-bottom: 1px solid rgba(79, 209, 197, 0.25);
+}
+
+.edu_rows + .edu_group {
+    margin-top: 2.5rem;
+}
+
+.edu_rows {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.edu_row {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-areas: "year name provider";
+    gap: 0.25rem 1.5rem;
+    align-items: baseline;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid rgba(193, 185, 194, 0.15);
+    font: 1rem 'Electrolize', sans-serif;
+    color: rgba(196, 255, 249, 0.75);
+}
+
+.edu_name {
+    grid-area: name;
+    font-size: 1.15rem;
+    color: #c4fff9;
+}
+
+.edu_provider {
+    grid-area: provider;
+}
+
+.edu_year {
+    grid-area: year;
+}
+
+/* at a glace strip */
+
+.glance {
+    width: 90%;
+    margin: 7rem auto 0;
+}
+
+.glance_list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    margin: 0;
+    border-top: 1px solid rgba(79, 209, 197, 0.25);
+    border-bottom: 1px solid rgba(79, 209, 197, 0.25);
+}
+
+.glance_item {
+    display: flex;
+    /* this lets the number show above its label */
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 0.35rem;
+    padding: 1.5rem 1.25rem;
+    border-left: 1px solid rgba(79, 209, 197, 0.15);
+}
+
+.glance_item:first-child {
+    border-left: 0;
+    padding-left: 0;
+}
+
+.glance_number {
+    margin: 0;
+    min-height: 1.2em;
+    font: 2.25rem 'Electrolize', sans-serif;
+    color: #c4fff9;
+}
+
+.glance_label {
+    font: 0.75rem 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #239e92;
+}
+
+/* projects */
+
+.portfolio {
+    width: 90%;
+    margin: 7rem auto 0;
+}
+
+.project_list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;  
+}
+
+.project_card {
+    perspective: 1600px;
+    border-radius: 8px;
+}
+
+.project_card:has(:focus-visible) {
+    outline: 3px solid #097A72;
+    outline-offset: 3px;
+}
+
+.card_inner {
+    height: 100%;
+    transition: transform 0.6s ease;
+}
+
+.card_face {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 24px;
+    box-sizing: border-box;
+    background: #c1b9c2;
+    color: #04302e;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    font: 0.95rem 'Electrolize', sans-serif;
+    transition: border-color 0.2s ease;
+}
+
+.project_card:hover .card_face {
+    border-color: #4fd1c5;
+}
+
+/* backup for if no js */
+
+.card_back {
+    margin-top: 2px;
+}
+
+/* card flips */
+
+.flip_ready .card_inner {
+    display: grid;
+    transform-style: preserve-3d;
+}
+
+.flip_ready .card_face {
+    grid-area: 1 / 1;           
+    margin-top: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.flip_ready .card_back {
+    transform: rotateY(180deg);
+}
+
+.flip_ready.is_flipped .card_inner {
+    transform: rotateY(180deg);
+}
+
+/* card contents */
+
+.card_preview {
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border: 1px solid rgba(4, 48, 46, 0.25);
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.card_preview img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      
+}
+
+.card_label {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    font: 0.75rem 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: #04302e;
+}
+
+.card_year::before {
+    content: "\00B7\00A0"; 
+}
+
+.type_chip {
+    padding: 0.2rem 0.6rem;
+    border-radius: 999px;
+    background: #04302e;
+    color: #c4fff9;
+}
+
+.card_title {
+    margin: 0;
+    font: 1.35rem/1.25 'Electrolize', sans-serif;
+    color: #04302e;
+}
+
+.project_card:hover .card_title {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.card_question {
+    margin: 0;
+    line-height: 1.45;
+}
+
+.tool_chips {
+    display: flex;
+    flex-wrap: wrap;        
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tool_chips li {
+    padding: 0.2rem 0.6rem;
+    border: 1px solid #04302e;
+    border-radius: 999px;
+    font-size: 0.75rem;
+}
+
+.back_heading,
+.findings_heading {
+    margin: 0;
+    font: 0.75rem 'Electrolize', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: #04302e;
+}
+
+.back_heading:focus {
+    outline: none;     
+}
+
+.card_details {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: 0.4rem 1rem;
+    margin: 0;
+}
+
+.card_details dt {
+    font-weight: bold;
+}
+
+.card_details dd {
+    margin: 0;
+}
+
+.findings {
+    margin: 0;
+    padding-left: 1.2rem;
+    line-height: 1.45;
+}
+
+.card_links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.25rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.card_links a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    color: #04302e;
+    text-underline-offset: 3px;
+}
+
+.card_links a:hover {
+    text-decoration-thickness: 2px;
+}
+
+/* this only appears if js can flip the card */
+
+.flip_button {
+    display: none;   
+}
+
+.flip_ready .flip_button {
+    display: inline-flex;
+    align-items: center;
+    align-self: flex-start;
+    margin-top: auto;           
+    min-height: 44px;
+    padding: 0 1rem;
+    font: 0.85rem 'Electrolize', sans-serif;
+    color: #04302e;
+    background: transparent;
+    border: 2px solid #04302e;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.flip_ready .flip_button:hover {
+    background: #04302e;
+    color: #c4fff9;
+}
+
+.project_card :focus-visible {
+    outline: 2px solid #04302e;
+    outline-offset: 2px;
+}
+
+.credits {
+    margin-top: auto;
+    padding: 1rem 0 0.25rem;
+    text-align: center;
+    font-family: 'Electrolize', sans-serif;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #454448;
+}
+
+.credits a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: rgba(69, 68, 72, 0.4);
+    text-underline-offset: 2px;
+}
+
+/* this adds space between the two credits */
+
+.credits a:first-of-type {
+    margin-right: 1.5rem;
+}
+
+.credits a:hover {
+    color: #04302e;
+}
+
+.visually_hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* hero section button states */
+
+.button {
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background: rgba(79, 209, 197, 0.15);
+}
+
+.button:focus-visible {
+    outline: 2px solid #097A72;
+    outline-offset: 2px;
+}
+
+/* section header info */
+
+.section_head {
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(79, 209, 197, 0.25);
+}
+
+.section_head h2 {
+    margin: 0;
+    color: #c4fff9;
+    font-size: clamp(1.5rem, 6vw, 2rem);
+    overflow-wrap: break-word;
+}
+
+.on_light,
+.on_light h2 {
+    color: #04302e;
+    border-bottom: 0;
+}
+
+.on_light {
+    color: #1d2423;
+}
+
+.on_light h3 {
+    color: #196961;
+}
+
+/* contact */
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    background-color: #c1b9c2;
+    padding: 4rem 5vw 1rem;
+    min-height: 20rem;
+    box-sizing: border-box;
+}
+
+.contact_layout {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.contact .section_head {
+    margin-bottom: 0;
+}
+
+.contact_links {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid rgba(4, 48, 46, 0.3);
+}
+
+.contact_row {
+    display: grid;
+    grid-template-columns: 120px minmax(0, 1fr) 1.5rem;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+    min-height: 64px;
+    padding: 0.75rem 0.5rem;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid rgba(4, 48, 46, 0.3);
+    background: transparent;
+    color: #04302e;
+    font: 1.1rem 'Electrolize', sans-serif;
+    text-align: left;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact_row:hover {
+    background: rgba(5, 96, 79, 0.08);
+    box-shadow: inset 3px 0 0 #05604f;
+}
+
+.contact_row:hover .row_value {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.contact_row:focus-visible {
+    outline: 2px solid #04302e;
+    outline-offset: 2px;
+}
+
+.row_label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+}
+
+.row_value {
+    overflow-wrap: anywhere;
+}
+
+.row_icon {
+    justify-self: end;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: #05604f;
+    transition: transform 0.2s ease;
+}
+
+
+
+.row_icon_box {
+    width: 0.85rem;
+    height: 0.85rem;
+    border: 2px solid #05604f;
+    background: rgba(5, 96, 79, 0.45);
+}
+
+/* resume */
+
+.resume_dialog {
+    width: min(760px, calc(100vw - 24px));
+    max-width: none;            
+    max-height: 90vh;
+    padding: 0;                 
+    border: 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #c1b9c2;
+    color: #04302e;
+}
+
+.resume_dialog::backdrop {
+    background: rgba(0, 0, 0, 0.72);
+}
+
+body:has(.resume_dialog[open]) {
+    overflow: hidden;
+}
+
+/* resume pop-up animation: slides up in, and back down out when closed */
+
+.resume_dialog[open] {
+    animation: resume_slide_up_in 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.resume_dialog[open]::backdrop {
+    animation: resume_backdrop_in 0.4s ease;
+}
+
+/* closing: main.js adds .is_closing, waits for this to finish, then closes the dialog */
+.resume_dialog[open].is_closing {
+    animation: resume_out 0.25s ease-in forwards;
+}
+
+.resume_dialog[open].is_closing::backdrop {
+    animation: resume_backdrop_out 0.25s ease-in forwards;
+}
+
+@keyframes resume_slide_up_in {
+    from { opacity: 0; transform: translateY(40px) scale(0.98); }
+    to   { opacity: 1; transform: none; }
+}
+
+@keyframes resume_out {
+    to { opacity: 0; transform: translateY(40px) scale(0.98); }
+}
+
+@keyframes resume_backdrop_in {
+    from { opacity: 0; }
+}
+
+@keyframes resume_backdrop_out {
+    to { opacity: 0; }
+}
+
+.dialog_panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-height: 90vh;
+    padding: 24px 28px;
+    box-sizing: border-box;
+}
+
+.dialog_head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dialog_head h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: #04302e;
+}
+
+.dialog_close {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    font: 1.5rem/1 'Electrolize', sans-serif;
+    color: #04302e;
+    background: transparent;
+    border: 2px solid #04302e;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.dialog_close:hover {
+    background: rgba(4, 48, 46, 0.1);
+}
+
+.resume_preview {
+    flex: 1 1 auto;
+    min-height: min(24rem, 50vh);
+    overflow: auto;             
+    background: #d9d2da;
+    border: 1px solid rgba(4, 48, 46, 0.3);
+}
+
+.resume_embed {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 8.5 / 11;    
+    border: 0;
+    object-fit: contain;
+}
+
+.dialog_actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.dialog_button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    padding: 0 1.25rem;
+    box-sizing: border-box;
+    font: 0.95rem 'Electrolize', sans-serif;
+    color: #04302e;
+    background: transparent;
+    border: 2px solid #04302e;
+    border-radius: 4px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.dialog_button:hover {
+    background: rgba(4, 48, 46, 0.1);
+}
+
+.dialog_button.primary {
+    background: #04302e;
+    color: #c4fff9;
+}
+
+.dialog_button.primary:hover {
+    background: #065a55;
+}
+
+.resume_dialog :focus-visible {
+    outline: 2px solid #04302e;
+    outline-offset: 2px;
+}
+
+/* placeholders, can be removed when all features added to site */
+
+.radar_caption:empty,
+.type_chip:empty,
+.card_year:empty,
+.card_title:empty,
+.tool_chips:empty,
+.findings:empty,
+.card_links:empty {
+    display: none;
+}
+
+/* media queries */
+
+/* mobile + tablet styles */
+@media (max-width: 989px) {
+    #desktop_menu {
+        display: none;
+    }
+    .menus {
+        margin-left: auto;
+    }
+    h1 {
+        font-size: min(2.5rem, 5vw);
+    }
+    #mobile_menu {
+        margin-top: .5rem;
+    }
+    .menu_item {
+        font-size: 1.25rem;
+        padding: .85rem 1.25rem;
+        width: auto;
+        text-align: center;
+    }
+    .hero {
+        justify-content: flex-start;
+        padding: 2rem 1rem 3rem;
+    }
+    #tagline {
+        margin-top: 0;
+    }
+    .hero_columns {
+        margin: 2rem 0;
+        max-width: 100%;
+    }
+    .cta {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    .skills {
+        /* stack: technical on top, soft below */
+        grid-template-columns: minmax(0, 1fr);  
+    }
+    .skill_tab {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .project_list,
+    .education_layout,
+    .contact_layout {
+        grid-template-columns: minmax(0, 1fr);
+    }
+    .education .section_head {
+        margin-bottom: 1rem;
+    }
+}
+
+/* mobile only styles */
+@media (max-width: 500px) {
+    h1 {
+        font-size: min(2.5rem, 6vw);
+    }
+    #tagline {
+        font-size: 1.2rem;
+        margin-top: 2rem;
+    }
+    #constellation {
+        max-width: 70%;
+    }
+    .skill_tab {
+    grid-template-columns: minmax(0, 1fr);
+    }
+    .technical {
+        padding: 0.5rem;
+    }
+    .tab_list {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        padding: 0 0.5rem;
+    }
+    .tab_button {
+        min-height: 44px;
+    }
+    .skill_tab {
+        padding: 0.5rem;
+    }
+    #tools {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    /* section spacing */
+    .glance,
+    .portfolio,
+    .education {
+        margin-top: 3.5rem;
+    }
+    /* at-a-glance */
+    .glance_list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .glance_item {
+        padding: 1rem;
+    }
+    .glance_item:nth-child(odd) {
+        border-left: 0;
+        padding-left: 0;
+    }
+    .glance_item:nth-child(n + 3) {
+        border-top: 1px solid rgba(79, 209, 197, 0.15);
+    }
+    .glance_number {
+        font-size: 1.875rem;
+    }
+
+    /* projects */
+
+    .card_face {
+        padding: 16px;
+    }
+
+    .project_list {
+        gap: 3rem;
+    }
+
+    /* education */
+    .edu_row {
+        grid-template-columns: auto minmax(0, 1fr);
+        grid-template-areas:
+            "name name"
+            "provider year";
+        gap: 0.15rem 0.4rem;
+    }
+    .edu_year::before {
+        content: "\00B7\00A0";
+    }
+    /* contact */
+    .contact {
+        padding-top: 3rem;
+    }
+    .contact_row {
+        grid-template-columns: 92px minmax(0, 1fr) 1.25rem;
+        font-size: 1rem;
+    }
+    /* resume  */
+    .resume_dialog {
+        width: calc(100vw - 24px);
+        height: calc(100vh - 24px);
+        height: calc(100dvh - 24px);
+        max-height: none;
+    }
+    .dialog_panel {
+        height: 100%;
+        max-height: none;
+        padding: 16px;
+    }
+    .dialog_actions .dialog_button:not(.primary) {
+        display: none;          
+    }
+    .dialog_button.primary {
+        width: 100%;
+        min-height: 48px;
+    }
+}
+
+/* tablet only styles */
+@media (min-width: 501px) and (max-width: 989px) {
+    #tagline {
+        margin-top: 2rem;
+    }
+    #constellation {
+        max-width: 45%;
+    }
+    .cta {
+        flex-direction: row;
+        gap: 2rem;
+    }
+    .specular {
+        bottom: 1px;
+    }
+    .hero {
+        padding-top: 15vh;
+    }
+}
+
+/* desktop styles */
+@media (min-width: 990px) {
+    #mobile_menu, #hamburger {
+        display: none;
+    }
+    .hero_columns {
+        flex-direction: row;
+    }
+    #constellation {
+        max-width: 45%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .card_inner,
+    #mobile_menu { 
+        transition: none;
+    }
+    .specular {
+        background-attachment: scroll;
+    }
+    .resume_dialog, .resume_dialog::backdrop {
+        animation: none !important;
+    }
+    .constellation .star, .constellation .chart_axes, .constellation .cassiopeia_line {
+        animation: none !important;
+    }
+    .constellation.drawn .chart_axes, .constellation.drawn .cassiopeia_line {
+        stroke-dashoffset: 0;
+    }
+    .constellation.drawn .star:not(.star_start) {
+        scale: 1;
+    }
+}
