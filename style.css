@@ -821,8 +821,8 @@ p {
 
 /* backup for if no js */
 
-.card_back {
-    margin-top: 2px;
+.card_back .flip_button {
+    margin-top: auto;
 }
 
 /* card flips */
@@ -920,12 +920,20 @@ p {
 }
 
 .back_heading,
-.findings_heading {
+.findings_heading,
+.card_details dt {
     margin: 0;
     font: 0.75rem 'Electrolize', sans-serif;
     text-transform: uppercase;
     letter-spacing: 0.16em;
+    color: #196961;                           
+}
+
+.back_heading {
+    padding-bottom: 0.75rem;
+    margin-bottom: 0.25rem;
     color: #04302e;
+    border-bottom: 2px solid #04302e;
 }
 
 .back_heading:focus {
@@ -934,40 +942,90 @@ p {
 
 .card_details {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr);
-    gap: 0.4rem 1rem;
+    grid-template-columns: 5.5rem minmax(0, 1fr);
     margin: 0;
 }
 
+.card_details dt,
+.card_details dd {
+    padding: 0.85rem 0;
+    border-top: 1px solid rgba(4, 48, 46, 0.2);
+}
+
+.card_details dt:first-of-type,
+.card_details dt:first-of-type + dd {
+    border-top: 0;                            
+}
+
 .card_details dt {
-    font-weight: bold;
+    padding-top: 1rem;                        
 }
 
 .card_details dd {
     margin: 0;
+    padding-left: 1rem;
+    line-height: 1.5;
+}
+
+/* key findings */
+
+.findings_heading {
+    margin-top: 1.25rem;
+    padding: 1rem 0 0.5rem;
+    border-top: 2px solid #04302e;
 }
 
 .findings {
     margin: 0;
-    padding-left: 1.2rem;
-    line-height: 1.45;
+    padding: 0;
+    list-style: none;
+    line-height: 1.5;
 }
+
+.findings li {
+    position: relative;
+    padding: 0.5rem 0 0.5rem 1.6rem;
+}
+
+.findings li + li {
+    border-top: 1px solid rgba(4, 48, 46, 0.12);
+}
+
+.findings li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.85rem;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: #196961;
+    clip-path: polygon(50% 0, 60% 40%, 100% 50%, 60% 60%, 50% 100%, 40% 60%, 0 50%, 40% 40%);
+}
+
+/* links */
 
 .card_links {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 1.25rem;
-    margin: 0;
-    padding: 0;
+    gap: 0 1.5rem;
+    margin: 1rem 0 1.25rem; 
+    padding: 0.25rem 0 0;
     list-style: none;
+    border-top: 1px solid rgba(4, 48, 46, 0.2);
 }
 
 .card_links a {
     display: inline-flex;
     align-items: center;
+    gap: 0.4rem;
     min-height: 44px;
     color: #04302e;
     text-underline-offset: 3px;
+}
+
+.card_links a::after {
+    content: "\2197";
+    text-decoration: none;
 }
 
 .card_links a:hover {

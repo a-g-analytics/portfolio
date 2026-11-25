@@ -133,7 +133,7 @@ resumeDialog.addEventListener('close', () => {
 
 // hero buttons
 document.getElementById('github_link').addEventListener('click', () => {
-    window.open('YOUR_GITHUB_URL', '_blank', 'noopener');
+    window.open('https://github.com/a-g-analytics', '_blank', 'noopener');
 });
 document.getElementById('email_contact').addEventListener('click', () => {
     window.location.href = 'mailto:anna.g.analytics@outlook.com';
